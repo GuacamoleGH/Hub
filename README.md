@@ -16,7 +16,6 @@ Panel de inicio y dashboard de acceso centralizado para aplicaciones y servicios
 - **Categorización Visual Clara:**
   - 🌐 **Aplicaciones Públicas:** Accesibles vía Cloudflare Tunnel bajo el dominio `guacamolegh.es`.
   - 🔒 **Servicios Privados:** Protegidos y accesibles únicamente dentro de la red privada con **Tailscale VPN**.
-  - ⚙️ **Automatizaciones:** Tareas y bots en segundo plano gestionados mediante Tailscale.
 - **Zero Dependencias Externas:** Iconos vectoriales SVG limpios e integrados (sin fuentes ni CDNs externos como FontAwesome o Google Fonts). Funciona perfectamente en entornos aislados o sin conexión a internet.
 - **Accesibilidad & UX:** Totalmente navegable por teclado, estados de foco visibles y atajos integrados (`/` o `Ctrl + K` para buscar, `Esc` para limpiar, `T` para alternar tema y `?` para ver atajos).
 - **Reloj y Fecha en Vivo:** Barra superior con indicador en tiempo real y tipografía monoespaciada para administración de sistemas.
@@ -61,18 +60,12 @@ Hub/
 ### 2. Servicios Privados (Tailscale Mesh VPN)
 | Servicio | URL Placeholder | Descripción |
 | :--- | :--- | :--- |
-| **Uptime Kuma** | `http://servidor-tailscale:3001` | Monitorización de estado y latencia |
-| **Beszel** | `http://servidor-tailscale:8090` | Monitorización ligera de CPU, RAM, disco y red |
-| **MeTube** | `http://servidor-tailscale:8081` | Interfaz web de descarga de vídeos vía yt-dlp |
+| **Uptime Kuma** | `http://servidor-tailscale:3101` | Monitorización de estado y latencia (puerto 3101 - pendiente de ajustar acceso) |
+| **Beszel** | `http://servidor-tailscale:8090` | Monitorización ligera de CPU, RAM, disco y red (puerto 8090) |
+| **MeTube** | `http://servidor-tailscale:8081` | Interfaz web de descarga de vídeos vía yt-dlp (puerto 8081) |
 | **PairDrop** | `http://servidor-tailscale:8787` | Transferencia local cifrada estilo AirDrop (puerto 8787) |
-| **Paperless-ngx** | `http://servidor-tailscale:PUERTO` | Gestión documental con OCR (verificar puerto en Compose, ej: 8000) |
-| **Stirling PDF** | `http://servidor-tailscale:PUERTO` | Herramientas integrales para manipulación de PDFs (verificar puerto en Compose, ej: 8080) |
-
-### 3. Automatizaciones (Segundo Plano / Tailscale)
-| Servicio | URL Placeholder | Descripción |
-| :--- | :--- | :--- |
-| **Twitch Drops Miner** | `http://servidor-tailscale:7070` | Minería automática de recompensas de Twitch |
-| **Free Games Claimer** | `http://servidor-tailscale:7080` | Reclamo semanal automático de juegos gratuitos |
+| **Paperless-ngx** | `http://servidor-tailscale:8000` | Gestión documental con OCR automático (puerto 8000) |
+| **Stirling PDF** | `http://servidor-tailscale:8082` | Herramientas integrales para manipulación de PDFs (puerto 8082) |
 
 ---
 
@@ -82,7 +75,7 @@ El archivo [`assets/js/config.js`](assets/js/config.js) contiene toda la informa
 
 ### Ejemplo: Cómo adaptar las URLs de Tailscale
 
-Por defecto, los servicios privados usan placeholders como `http://servidor-tailscale:3001`. Puedes cambiarlos a tu configuración real de Tailscale de tres maneras:
+Por defecto, los servicios privados usan placeholders como `http://servidor-tailscale:3101`. Puedes cambiarlos a tu configuración real de Tailscale de tres maneras:
 
 #### Opción A: Mediante MagicDNS de Tailscale (Recomendada)
 Si tu servidor Ubuntu se llama en Tailscale `ubuntu-server` o `homeserver`:
@@ -93,8 +86,8 @@ Si tu servidor Ubuntu se llama en Tailscale `ubuntu-server` o `homeserver`:
   title: "Uptime Kuma",
   category: "private",
   description: "Monitorización en tiempo real del estado, latencia y disponibilidad de servicios.",
-  url: "http://ubuntu-server:3001",           // <-- URL real con MagicDNS
-  displayUrl: "ubuntu-server:3001",           // <-- Texto mostrado en la tarjeta
+  url: "http://ubuntu-server:3101",           // <-- URL real con MagicDNS
+  displayUrl: "ubuntu-server:3101",           // <-- Texto mostrado en la tarjeta
   icon: "activity",
   accessType: "tailscale",
   tags: ["uptime", "kuma", "monitor", "ping", "estado", "alertas"],
@@ -104,8 +97,8 @@ Si tu servidor Ubuntu se llama en Tailscale `ubuntu-server` o `homeserver`:
 
 #### Opción B: Mediante la IP Privada de Tailscale (Rango 100.x.y.z)
 ```javascript
-url: "http://100.85.120.45:3001",
-displayUrl: "100.85.120.45:3001",
+url: "http://100.85.120.45:3101",
+displayUrl: "100.85.120.45:3101",
 ```
 
 #### Opción C: Mediante subdominios locales con HTTPS interno

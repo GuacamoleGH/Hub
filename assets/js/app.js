@@ -118,20 +118,21 @@
   function renderCategoryFilters() {
     if (!elements.filterTabsContainer) return;
 
-    // Calcular totales por categoría
-    const counts = {
-      all: services.length,
-      public: services.filter(s => s.category === 'public').length,
-      private: services.filter(s => s.category === 'private').length,
-      automations: services.filter(s => s.category === 'automations').length,
-    };
-
+    // Pestaña inicial para todos los servicios
     const tabs = [
-      { id: 'all', name: 'Todos', count: counts.all },
-      { id: 'public', name: categories.public?.shortName || 'Públicas', count: counts.public },
-      { id: 'private', name: categories.private?.shortName || 'Privados', count: counts.private },
-      { id: 'automations', name: categories.automations?.shortName || 'Automatizaciones', count: counts.automations },
+      { id: 'all', name: 'Todos', count: services.length },
     ];
+
+    // Generar pestañas dinámicamente según las categorías activas en config.js
+    Object.keys(categories).forEach(catKey => {
+      const cat = categories[catKey];
+      const count = services.filter(s => s.category === catKey).length;
+      tabs.push({
+        id: catKey,
+        name: cat.shortName || cat.name,
+        count: count,
+      });
+    });
 
     elements.filterTabsContainer.innerHTML = tabs
       .map(
