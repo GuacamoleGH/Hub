@@ -55,7 +55,7 @@ Hub/
 | Servicio | Subdominio | Descripción |
 | :--- | :--- | :--- |
 | **Hub** | `https://hub.guacamolegh.es` | Portal de inicio y acceso centralizado |
-| **Atlas** | `https://master.guacamolegh.es` | Aplicación web personal |
+| **Atlas** | `https://atlas.guacamolegh.es` | Aplicación web personal |
 | **Gestión del coche** | `https://coche.guacamolegh.es` | Mantenimiento, repostajes y gastos con LubeLogger |
 
 ### 2. Servicios Privados (Red Local / DNS Privado guacamolegh.es)
