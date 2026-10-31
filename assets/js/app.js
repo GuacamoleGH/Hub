@@ -17,9 +17,10 @@
 
   // Estado reactivo de la aplicación
   const state = {
-    activeCategory: 'all', // 'all' | 'public' | 'private' | 'automations'
+    activeCategory: 'all', // 'all' | 'public' | 'private'
     searchQuery: '',
     theme: localStorage.getItem('guacamole_hub_theme') || config.ui?.defaultTheme || 'dark',
+    view: localStorage.getItem('guacamole_hub_view') || config.ui?.defaultView || 'grid', // 'grid' | 'list'
   };
 
   // Referencias a elementos del DOM
@@ -32,6 +33,8 @@
     filterTabsContainer: document.getElementById('categories-filter-bar'),
     sectionTitle: document.getElementById('section-title'),
     sectionCount: document.getElementById('section-count'),
+    viewGridBtn: document.getElementById('view-grid-btn'),
+    viewListBtn: document.getElementById('view-list-btn'),
     clockTime: document.getElementById('clock-time'),
     clockDate: document.getElementById('clock-date'),
     themeToggleBtn: document.getElementById('theme-toggle-btn'),
@@ -45,6 +48,7 @@
    */
   function init() {
     initTheme();
+    initView();
     initClock();
     renderCategoryFilters();
     renderServices();
@@ -79,6 +83,34 @@
       'title',
       isDark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'
     );
+  }
+
+  /* -------------------------------------------------------------------
+     Gestión de Modo de Vista (Cuadrícula / Lista)
+     ------------------------------------------------------------------- */
+  function initView() {
+    setView(state.view);
+  }
+
+  function setView(viewMode) {
+    state.view = viewMode === 'list' ? 'list' : 'grid';
+    localStorage.setItem('guacamole_hub_view', state.view);
+
+    if (elements.grid) {
+      elements.grid.classList.toggle('view-list', state.view === 'list');
+    }
+
+    if (elements.viewGridBtn) {
+      const isGrid = state.view === 'grid';
+      elements.viewGridBtn.classList.toggle('active', isGrid);
+      elements.viewGridBtn.setAttribute('aria-pressed', isGrid ? 'true' : 'false');
+    }
+
+    if (elements.viewListBtn) {
+      const isList = state.view === 'list';
+      elements.viewListBtn.classList.toggle('active', isList);
+      elements.viewListBtn.setAttribute('aria-pressed', isList ? 'true' : 'false');
+    }
   }
 
   /* -------------------------------------------------------------------
@@ -215,7 +247,7 @@
 
         return `
         <article class="service-card fade-in" data-category="${service.category}" tabindex="0">
-          <div>
+          <div class="card-primary-wrapper">
             <div class="card-header">
               <div class="card-icon-box" title="Icono de ${service.title}">
                 ${window.getIconSvg(service.icon, 'icon-lg')}
@@ -376,6 +408,14 @@
       });
     }
 
+    // Alternancia de vista (Cuadrícula / Lista)
+    if (elements.viewGridBtn) {
+      elements.viewGridBtn.addEventListener('click', () => setView('grid'));
+    }
+    if (elements.viewListBtn) {
+      elements.viewListBtn.addEventListener('click', () => setView('list'));
+    }
+
     // Modal de Atajos
     if (elements.shortcutsBtn) {
       elements.shortcutsBtn.addEventListener('click', () => openModal());
@@ -452,6 +492,12 @@
       if (e.key.toLowerCase() === 't' && !isInput) {
         e.preventDefault();
         toggleTheme();
+      }
+
+      // Atajo: 'v' para alternar vista (Cuadrícula / Lista)
+      if (e.key.toLowerCase() === 'v' && !isInput) {
+        e.preventDefault();
+        setView(state.view === 'grid' ? 'list' : 'grid');
       }
     });
   }

@@ -12,6 +12,7 @@ Panel de inicio y dashboard de acceso centralizado para aplicaciones y servicios
 ## ✨ Características Principales
 
 - **Diseño Dashboard Premium:** Estética oscura por defecto inspirada en dashboards modernos de alta gama (con paleta de obsidian y pizarra), además de selector de modo claro persistente.
+- **Doble Modo de Vista (Cuadrícula / Lista):** Selector interactivo y persistente para alternar entre vista de tarjetas visuales o filas compactas (atajo tecla `V`).
 - **Buscador en Tiempo Real:** Filtra instantáneamente por nombre de servicio, descripción, etiquetas o URLs.
 - **Categorización Visual Clara:**
   - 🌐 **Aplicaciones Públicas:** Accesibles vía Cloudflare Tunnel bajo el dominio `guacamolegh.es`.
@@ -226,6 +227,7 @@ docker compose up -d --build
 | `/` o `Ctrl + K` | Enfocar la barra de búsqueda inmediatamente |
 | `Esc` | Limpiar la búsqueda activa / Cerrar ventanas modales |
 | `T` | Alternar entre tema Oscuro y Claro |
+| `V` | Alternar entre vista en Cuadrícula y Lista |
 | `?` | Abrir la ventana de ayuda con los atajos |
 
 ---
