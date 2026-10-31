@@ -64,9 +64,9 @@ Hub/
 | **Uptime Kuma** | `http://servidor-tailscale:3001` | Monitorización de estado y latencia |
 | **Beszel** | `http://servidor-tailscale:8090` | Monitorización ligera de CPU, RAM, disco y red |
 | **MeTube** | `http://servidor-tailscale:8081` | Interfaz web de descarga de vídeos vía yt-dlp |
-| **PairDrop** | `http://servidor-tailscale:3000` | Transferencia local cifrada estilo AirDrop |
-| **Paperless-ngx** | `http://servidor-tailscale:8000` | Gestión documental con OCR automático |
-| **Stirling PDF** | `http://servidor-tailscale:8080` | Herramientas integrales para manipulación de PDFs |
+| **PairDrop** | `http://servidor-tailscale:8787` | Transferencia local cifrada estilo AirDrop (puerto 8787) |
+| **Paperless-ngx** | `http://servidor-tailscale:PUERTO` | Gestión documental con OCR (verificar puerto en Compose, ej: 8000) |
+| **Stirling PDF** | `http://servidor-tailscale:PUERTO` | Herramientas integrales para manipulación de PDFs (verificar puerto en Compose, ej: 8080) |
 
 ### 3. Automatizaciones (Segundo Plano / Tailscale)
 | Servicio | URL Placeholder | Descripción |

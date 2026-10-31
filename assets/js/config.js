@@ -151,8 +151,8 @@ window.HUB_CONFIG = {
       title: "PairDrop",
       category: "private",
       description: "Transferencia rápida y cifrada de archivos entre dispositivos en la misma red.",
-      url: "http://servidor-tailscale:3000",
-      displayUrl: "tailscale:3000",
+      url: "http://servidor-tailscale:8787",
+      displayUrl: "tailscale:8787",
       icon: "share-2",
       accessType: "tailscale",
       tags: ["pairdrop", "archivos", "transferencia", "airdrop", "p2p", "local"],
@@ -163,6 +163,7 @@ window.HUB_CONFIG = {
       title: "Paperless-ngx",
       category: "private",
       description: "Gestión documental digital con indexación, OCR automático y búsqueda inteligente.",
+      // NOTA: Ajusta el puerto al mapeado en tu docker-compose.yml de Paperless en el servidor (ej: 8000, 8010, etc.)
       url: "http://servidor-tailscale:8000",
       displayUrl: "tailscale:8000",
       icon: "file-text",
@@ -175,6 +176,7 @@ window.HUB_CONFIG = {
       title: "Stirling PDF",
       category: "private",
       description: "Suite integral para manipular, unir, dividir, firmar y comprimir archivos PDF.",
+      // NOTA: Ajusta el puerto al mapeado en tu docker-compose.yml de Stirling PDF en el servidor (ej: 8080, 8085, etc.)
       url: "http://servidor-tailscale:8080",
       displayUrl: "tailscale:8080",
       icon: "file-cog",
