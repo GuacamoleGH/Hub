@@ -226,22 +226,10 @@
     elements.grid.innerHTML = filtered
       .map(service => {
         const catInfo = categories[service.category] || {};
-        const isPublic = service.accessType === 'public';
-        const isAuto = service.category === 'automations';
-
-        let badgeClass = 'public';
-        let badgeText = 'Cloudflare';
-        let badgeIcon = 'globe';
-
-        if (isAuto) {
-          badgeClass = 'automation';
-          badgeText = 'Segundo Plano';
-          badgeIcon = 'cpu';
-        } else if (!isPublic) {
-          badgeClass = 'private';
-          badgeText = 'Tailscale VPN';
-          badgeIcon = 'shield';
-        }
+        const isPublic = service.category === 'public';
+        let badgeClass = isPublic ? 'public' : 'private';
+        let badgeText = catInfo.badge || (isPublic ? 'Cloudflare' : 'Red Privada');
+        let badgeIcon = isPublic ? 'globe' : 'shield';
 
         const displayUrl = service.displayUrl || service.url.replace(/^https?:\/\//, '');
 

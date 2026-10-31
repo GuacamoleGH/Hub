@@ -58,15 +58,15 @@ Hub/
 | **Master-hub** | `https://master.guacamolegh.es` | Aplicación web personal |
 | **Gestión del coche** | `https://coche.guacamolegh.es` | Mantenimiento, repostajes y gastos con LubeLogger |
 
-### 2. Servicios Privados (Tailscale Mesh VPN)
-| Servicio | URL Placeholder | Descripción |
+### 2. Servicios Privados (Red Local / DNS Privado guacamolegh.es)
+| Servicio | Dominio Privado | Descripción |
 | :--- | :--- | :--- |
-| **Uptime Kuma** | `http://servidor-tailscale:3101` | Monitorización de estado y latencia (puerto 3101 - pendiente de ajustar acceso) |
-| **Beszel** | `http://servidor-tailscale:8090` | Monitorización ligera de CPU, RAM, disco y red (puerto 8090) |
-| **MeTube** | `http://servidor-tailscale:8081` | Interfaz web de descarga de vídeos vía yt-dlp (puerto 8081) |
-| **PairDrop** | `http://servidor-tailscale:8787` | Transferencia local cifrada estilo AirDrop (puerto 8787) |
-| **Paperless-ngx** | `http://servidor-tailscale:8000` | Gestión documental con OCR automático (puerto 8000) |
-| **Stirling PDF** | `http://servidor-tailscale:8082` | Herramientas integrales para manipulación de PDFs (puerto 8082) |
+| **Uptime Kuma** | `https://uptime.guacamolegh.es` | Monitorización de estado y latencia |
+| **Beszel** | `https://beszel.guacamolegh.es` | Monitorización ligera de CPU, RAM, disco y red |
+| **MeTube** | `https://metube.guacamolegh.es` | Interfaz web de descarga de vídeos vía yt-dlp |
+| **PairDrop** | `https://pairdrop.guacamolegh.es` | Transferencia local cifrada estilo AirDrop |
+| **Paperless-ngx** | `https://paperless.guacamolegh.es` | Gestión documental con OCR automático |
+| **Stirling PDF** | `https://stirling.guacamolegh.es` | Herramientas integrales para manipulación de PDFs |
 
 ---
 
@@ -74,12 +74,19 @@ Hub/
 
 El archivo [`assets/js/config.js`](assets/js/config.js) contiene toda la información de las aplicaciones.
 
-### Ejemplo: Cómo adaptar las URLs de Tailscale
+### Resolución de DNS Local (192.168.0.18)
+Los servicios privados resuelven en tu red interna (por ejemplo mediante Pi-hole, AdGuard Home o `/etc/hosts` apuntando a `192.168.0.18`):
 
-Por defecto, los servicios privados usan placeholders como `http://servidor-tailscale:3101`. Puedes cambiarlos a tu configuración real de Tailscale de tres maneras:
+```text
+192.168.0.18 beszel.guacamolegh.es
+192.168.0.18 paperless.guacamolegh.es
+192.168.0.18 metube.guacamolegh.es
+192.168.0.18 pairdrop.guacamolegh.es
+192.168.0.18 stirling.guacamolegh.es
+192.168.0.18 uptime.guacamolegh.es
+```
 
-#### Opción A: Mediante MagicDNS de Tailscale (Recomendada)
-Si tu servidor Ubuntu se llama en Tailscale `ubuntu-server` o `homeserver`:
+En el Hub, cada tarjeta apunta directamente a su subdominio sin exponer ni requerir escribir la dirección IP:
 
 ```javascript
 {
@@ -87,25 +94,13 @@ Si tu servidor Ubuntu se llama en Tailscale `ubuntu-server` o `homeserver`:
   title: "Uptime Kuma",
   category: "private",
   description: "Monitorización en tiempo real del estado, latencia y disponibilidad de servicios.",
-  url: "http://ubuntu-server:3101",           // <-- URL real con MagicDNS
-  displayUrl: "ubuntu-server:3101",           // <-- Texto mostrado en la tarjeta
+  url: "https://uptime.guacamolegh.es",
+  displayUrl: "uptime.guacamolegh.es",
   icon: "activity",
-  accessType: "tailscale",
+  accessType: "private",
   tags: ["uptime", "kuma", "monitor", "ping", "estado", "alertas"],
   featured: false
 }
-```
-
-#### Opción B: Mediante la IP Privada de Tailscale (Rango 100.x.y.z)
-```javascript
-url: "http://100.85.120.45:3101",
-displayUrl: "100.85.120.45:3101",
-```
-
-#### Opción C: Mediante subdominios locales con HTTPS interno
-```javascript
-url: "https://uptime.homeserver.ts.net",
-displayUrl: "uptime.homeserver.ts.net",
 ```
 
 ### Cómo añadir un nuevo servicio
