@@ -75,15 +75,15 @@ window.HUB_CONFIG = {
       featured: true,
     },
     {
-      id: "master-hub",
-      title: "Master-hub",
+      id: "atlas",
+      title: "Atlas",
       category: "public",
       description: "Aplicación web personal centralizada para administración y utilidades.",
       url: "https://master.guacamolegh.es",
       displayUrl: "master.guacamolegh.es",
       icon: "layers",
       accessType: "public",
-      tags: ["master", "web", "personal", "gestion", "portal"],
+      tags: ["atlas", "master", "masterhub", "web", "personal", "gestion", "portal"],
       featured: true,
     },
     {
