@@ -1,0 +1,23 @@
+services:
+  hub:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: guacamole-hub
+    restart: unless-stopped
+    ports:
+      # Puerto externo:interno. Cambia 8080 por el puerto libre de tu servidor.
+      - "8080:80"
+    environment:
+      - TZ=Europe/Madrid
+    volumes:
+      # Montaje opcional en modo solo lectura del archivo de configuración.
+      # Permite actualizar servicios o URLs editando config.js en el host
+      # sin necesidad de reconstruir la imagen Docker.
+      - ./assets/js/config.js:/usr/share/nginx/html/assets/js/config.js:ro
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:80/health || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 5s

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Guacamole Server Hub — Panel de acceso rápido a servicios públicos, privados y automatizaciones.">
+  <meta name="theme-color" content="#080b11">
+  <title>Guacamole Server — Hub de Servicios</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <!-- Estilos CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <!-- Cabecera Superior -->
+  <header class="site-header">
+    <div class="app-container">
+      <div class="header-content">
+        <!-- Logo e Información del Servidor -->
+        <div class="brand-section">
+          <div class="brand-logo-wrap" title="Guacamole Server Hub">
+            <svg class="icon-lg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="20" height="8" x="2" y="2" rx="2" ry="2"/>
+              <rect width="20" height="8" x="2" y="14" rx="2" ry="2"/>
+              <line x1="6" x2="6.01" y1="6" y2="6"/>
+              <line x1="6" x2="6.01" y1="18" y2="18"/>
+            </svg>
+          </div>
+          <div class="brand-titles">
+            <div class="brand-name">
+              <span>Guacamole Server</span>
+              <span class="brand-env">Producción</span>
+            </div>
+            <div class="brand-tagline">Panel de Inicio & Servicios</div>
+          </div>
+        </div>
+
+        <!-- Reloj y Fecha en Vivo -->
+        <div class="clock-widget" title="Hora actual del sistema">
+          <span class="clock-icon-pulse">●</span>
+          <span class="clock-time" id="clock-time">--:--:--</span>
+          <span class="clock-date" id="clock-date">Cargando...</span>
+        </div>
+
+        <!-- Acciones: Atajos y Modo Claro/Oscuro -->
+        <div class="header-actions">
+          <button type="button" class="header-btn" id="shortcuts-btn" title="Atajos de teclado (?)" aria-label="Ver atajos de teclado">
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+              <path d="M12 17h.01"/>
+            </svg>
+          </button>
+          <button type="button" class="header-btn" id="theme-toggle-btn" title="Alternar tema visual" aria-label="Alternar tema visual">
+            <!-- Icono inyectado dinámicamente vía app.js -->
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Contenido Principal -->
+  <main class="app-container">
+    <!-- Banner Informativo de Red -->
+    <section class="network-banner" aria-label="Información de red del servidor">
+      <div class="network-status-group">
+        <div class="network-pill" title="Aplicaciones accesibles públicamente con SSL">
+          <span class="status-dot public"></span>
+          <span><strong>Cloudflare Tunnel:</strong> guacamolegh.es</span>
+        </div>
+        <div class="network-pill" title="Servicios protegidos mediante red mallada Tailscale">
+          <span class="status-dot private"></span>
+          <span><strong>Red Privada:</strong> Tailscale Mesh VPN</span>
+        </div>
+      </div>
+      <div class="network-info-hint">
+        <svg class="icon-sm" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M12 16v-4"/>
+          <path d="M12 8h.01"/>
+        </svg>
+        <span>Los servicios privados requieren tener Tailscale activo en tu dispositivo.</span>
+      </div>
+    </section>
+
+    <!-- Controles: Buscador y Pestañas de Filtro -->
+    <section class="controls-section" aria-label="Filtros y buscador de aplicaciones">
+      <!-- Barra de Búsqueda -->
+      <div class="search-wrapper">
+        <input 
+          type="search" 
+          id="search-input" 
+          class="search-input-box" 
+          placeholder="Buscar servicios por nombre, descripción o etiquetas... (Presiona '/' para buscar)" 
+          autocomplete="off"
+          spellcheck="false"
+        >
+        <div class="search-icon-left">
+          <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/>
+            <path d="m21 21-4.3-4.3"/>
+          </svg>
+        </div>
+        <div class="search-shortcut-badge" id="search-shortcut-badge">
+          <span>/</span>
+        </div>
+        <button type="button" class="search-clear-btn" id="search-clear-btn" aria-label="Limpiar búsqueda" title="Limpiar búsqueda">
+          <svg class="icon-sm" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Filtros por Categoría -->
+      <nav class="categories-filter-bar" id="categories-filter-bar" role="tablist" aria-label="Categorías de aplicaciones">
+        <!-- Renderizado dinámicamente vía app.js -->
+      </nav>
+    </section>
+
+    <!-- Metadatos de la Sección Actual -->
+    <section class="section-meta-bar" aria-live="polite">
+      <div class="section-title-wrap">
+        <h2 class="section-heading" id="section-title">Todos los servicios</h2>
+        <span class="section-counter" id="section-count">11 servicios</span>
+      </div>
+    </section>
+
+    <!-- Grid de Tarjetas de Servicios -->
+    <section class="services-grid" id="services-grid" aria-label="Lista de servicios del servidor">
+      <!-- Renderizado reactivo desde config.js -->
+    </section>
+  </main>
+
+  <!-- Modal de Atajos de Teclado -->
+  <div class="modal-backdrop" id="shortcuts-modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">
+          <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="20" height="16" x="2" y="4" rx="2"/><path d="M6 8h.001"/><path d="M10 8h.001"/><path d="M14 8h.001"/><path d="M18 8h.001"/><path d="M8 12h.001"/><path d="M12 12h.001"/><path d="M16 12h.001"/><path d="M7 16h10"/>
+          </svg>
+          <span>Atajos de Teclado</span>
+        </h3>
+        <button type="button" class="modal-close-btn" id="close-modal-btn" aria-label="Cerrar ventana">
+          <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div class="shortcuts-list">
+        <div class="shortcut-row">
+          <span>Enfocar buscador</span>
+          <span class="shortcut-kbd">/</span> o <span class="shortcut-kbd">Ctrl + K</span>
+        </div>
+        <div class="shortcut-row">
+          <span>Limpiar búsqueda / Cerrar modal</span>
+          <span class="shortcut-kbd">Esc</span>
+        </div>
+        <div class="shortcut-row">
+          <span>Alternar tema Claro / Oscuro</span>
+          <span class="shortcut-kbd">T</span>
+        </div>
+        <div class="shortcut-row">
+          <span>Abrir esta ventana de ayuda</span>
+          <span class="shortcut-kbd">?</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pie de Página -->
+  <footer class="site-footer">
+    <div class="app-container">
+      <div class="footer-content">
+        <div>
+          <span>Guacamole Server © 2026 — Desplegado con Docker & Nginx</span>
+        </div>
+        <div class="footer-links">
+          <a href="https://github.com/GuacamoleGH/Hub" target="_blank" rel="noopener noreferrer" class="footer-link">
+            <svg class="icon-sm" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/>
+            </svg>
+            <span>GitHub Repository</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts: Iconos, Configuración y Lógica -->
+  <script src="assets/js/icons.js"></script>
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
