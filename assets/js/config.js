@@ -27,6 +27,7 @@ window.HUB_CONFIG = {
   // Ajustes de visualización y comportamiento
   ui: {
     defaultTheme: "dark", // "dark" | "light"
+    defaultView: "list",  // "list" | "grid"
     enableClock: true,
     clockFormat24h: true,
     showDate: true,

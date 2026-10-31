@@ -20,7 +20,7 @@
     activeCategory: 'all', // 'all' | 'public' | 'private'
     searchQuery: '',
     theme: localStorage.getItem('guacamole_hub_theme') || config.ui?.defaultTheme || 'dark',
-    view: localStorage.getItem('guacamole_hub_view') || config.ui?.defaultView || 'grid', // 'grid' | 'list'
+    view: localStorage.getItem('guacamole_hub_view') || config.ui?.defaultView || 'list', // 'list' | 'grid'
   };
 
   // Referencias a elementos del DOM
