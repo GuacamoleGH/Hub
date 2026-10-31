@@ -54,7 +54,6 @@ Hub/
 ### 1. Aplicaciones Públicas (`guacamolegh.es` vía Cloudflare Tunnel)
 | Servicio | Subdominio | Descripción |
 | :--- | :--- | :--- |
-| **Hub** | `https://hub.guacamolegh.es` | Portal de inicio y acceso centralizado |
 | **Atlas** | `https://atlas.guacamolegh.es` | Aplicación web personal |
 | **Gestión del coche** | `https://coche.guacamolegh.es` | Mantenimiento, repostajes y gastos con LubeLogger |
 

@@ -63,18 +63,6 @@ window.HUB_CONFIG = {
     // APLICACIONES PÚBLICAS (Cloudflare Tunnel & guacamolegh.es)
     // -------------------------------------------------------------
     {
-      id: "hub",
-      title: "Hub",
-      category: "public",
-      description: "Página principal del servidor con acceso rápido y unificado a todos los servicios.",
-      url: "https://hub.guacamolegh.es",
-      displayUrl: "hub.guacamolegh.es",
-      icon: "layout-grid",
-      accessType: "public",
-      tags: ["hub", "dashboard", "inicio", "servidor", "portal"],
-      featured: true,
-    },
-    {
       id: "atlas",
       title: "Atlas",
       category: "public",
