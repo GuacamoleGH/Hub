@@ -2,7 +2,7 @@
 
 Panel de inicio y dashboard de acceso centralizado para aplicaciones y servicios de servidor doméstico. Diseñado con una interfaz moderna, oscura y elegante, de alto rendimiento y 100% estática para desplegarse fácilmente en **Ubuntu** mediante **Docker** y **Nginx**.
 
-![Versión](https://img.shields.io/badge/versión-1.0.0-10b981?style=flat-square)
+![Versión](https://img.shields.io/badge/versión-1.2.0-10b981?style=flat-square)
 ![Licencia](https://img.shields.io/badge/licencia-MIT-06b6d4?style=flat-square)
 ![Docker](https://img.shields.io/badge/docker-ready-blue?style=flat-square&logo=docker)
 ![Nginx](https://img.shields.io/badge/nginx-alpine-009639?style=flat-square&logo=nginx)
@@ -16,7 +16,7 @@ Panel de inicio y dashboard de acceso centralizado para aplicaciones y servicios
 - **Buscador en Tiempo Real:** Filtra instantáneamente por nombre de servicio, descripción, etiquetas o URLs.
 - **Categorización Visual Clara:**
   - 🌐 **Aplicaciones Públicas:** Accesibles vía Cloudflare Tunnel bajo el dominio `guacamolegh.es`.
-  - 🔒 **Servicios Privados:** Protegidos y accesibles únicamente dentro de la red privada con **Tailscale VPN**.
+  - 🔒 **Servicios Privados:** Protegidos y accesibles únicamente dentro de la red privada con **Tailscale VPN** o DNS local.
 - **Zero Dependencias Externas:** Iconos vectoriales SVG limpios e integrados (sin fuentes ni CDNs externos como FontAwesome o Google Fonts). Funciona perfectamente en entornos aislados o sin conexión a internet.
 - **Accesibilidad & UX:** Totalmente navegable por teclado, estados de foco visibles y atajos integrados (`/` o `Ctrl + K` para buscar, `Esc` para limpiar, `T` para alternar tema y `?` para ver atajos).
 - **Reloj y Fecha en Vivo:** Barra superior con indicador en tiempo real y tipografía monoespaciada para administración de sistemas.
@@ -63,7 +63,6 @@ Hub/
 | **Uptime Kuma** | `https://uptime.guacamolegh.es` | Monitorización de estado y latencia |
 | **Beszel** | `https://beszel.guacamolegh.es` | Monitorización ligera de CPU, RAM, disco y red |
 | **MeTube** | `https://metube.guacamolegh.es` | Interfaz web de descarga de vídeos vía yt-dlp |
-| **PairDrop** | `https://pairdrop.guacamolegh.es` | Transferencia local cifrada estilo AirDrop |
 | **Paperless-ngx** | `https://paperless.guacamolegh.es` | Gestión documental con OCR automático |
 | **Stirling PDF** | `https://stirling.guacamolegh.es` | Herramientas integrales para manipulación de PDFs |
 
@@ -80,7 +79,6 @@ Los servicios privados resuelven en tu red interna (por ejemplo mediante Pi-hole
 192.168.0.18 beszel.guacamolegh.es
 192.168.0.18 paperless.guacamolegh.es
 192.168.0.18 metube.guacamolegh.es
-192.168.0.18 pairdrop.guacamolegh.es
 192.168.0.18 stirling.guacamolegh.es
 192.168.0.18 uptime.guacamolegh.es
 ```
@@ -109,12 +107,12 @@ Simplemente añade un objeto al array `services` en [`assets/js/config.js`](asse
 {
   id: "jellyfin",
   title: "Jellyfin",
-  category: "private", // "public" | "private" | "automations"
+  category: "private", // "public" | "private"
   description: "Servidor multimedia para streaming de películas, series y música.",
-  url: "http://ubuntu-server:8096",
-  displayUrl: "ubuntu-server:8096",
+  url: "https://jellyfin.guacamolegh.es",
+  displayUrl: "jellyfin.guacamolegh.es",
   icon: "tv", // Nombre del icono definido en icons.js
-  accessType: "tailscale", // "public" | "tailscale"
+  accessType: "private",
   tags: ["media", "streaming", "peliculas", "jellyfin"],
   featured: false
 }
@@ -193,7 +191,7 @@ Para publicar el Hub en `https://hub.guacamolegh.es`:
    - **URL:** `localhost:8080` (o la IP interna de tu máquina / nombre de red Docker).
 4. Guarda los cambios. En unos segundos tu Hub estará disponible bajo HTTPS con certificado SSL automático y protección DDoS.
 
-> 🔒 **Recuerda:** Tus servicios privados (`Uptime Kuma`, `Beszel`, `MeTube`, etc.) **no** deben añadirse a Cloudflare Tunnel. Solo debes acceder a ellos mediante la VPN de Tailscale.
+> 🔒 **Recuerda:** Tus servicios privados (`Uptime Kuma`, `Beszel`, `MeTube`, etc.) **no** deben añadirse a Cloudflare Tunnel. Solo debes acceder a ellos mediante red local o VPN.
 
 ---
 
