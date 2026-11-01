@@ -86,6 +86,18 @@ window.HUB_CONFIG = {
       tags: ["coche", "lubelogger", "vehiculo", "mantenimiento", "combustible", "gastos"],
       featured: true,
     },
+    {
+      id: "games",
+      title: "Games",
+      category: "public",
+      description: "Catálogo web de juegos arcade clásicos para navegador (Snake, Pong, Tetris, etc.).",
+      url: "https://games.guacamolegh.es",
+      displayUrl: "games.guacamolegh.es",
+      icon: "gamepad-2",
+      accessType: "public",
+      tags: ["games", "juegos", "arcade", "retro", "snake", "tetris", "pong"],
+      featured: true,
+    },
 
     // -------------------------------------------------------------
     // SERVICIOS PRIVADOS (Red Privada / DNS local guacamolegh.es)

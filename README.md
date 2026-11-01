@@ -56,6 +56,7 @@ Hub/
 | :--- | :--- | :--- |
 | **Atlas** | `https://atlas.guacamolegh.es` | Aplicación web personal |
 | **Gestión del coche** | `https://coche.guacamolegh.es` | Mantenimiento, repostajes y gastos con LubeLogger |
+| **Games** | `https://games.guacamolegh.es` | Catálogo de juegos arcade clásicos para navegador |
 
 ### 2. Servicios Privados (Red Local / DNS Privado guacamolegh.es)
 | Servicio | Dominio Privado | Descripción |
