@@ -139,18 +139,6 @@ window.HUB_CONFIG = {
       featured: false,
     },
     {
-      id: "paperless-ngx",
-      title: "Paperless-ngx",
-      category: "private",
-      description: "Gestión documental digital con indexación, OCR automático y búsqueda inteligente.",
-      url: "https://paperless.guacamolegh.es",
-      displayUrl: "paperless.guacamolegh.es",
-      icon: "file-text",
-      accessType: "private",
-      tags: ["paperless", "documentos", "facturas", "ocr", "archivo", "gestion"],
-      featured: false,
-    },
-    {
       id: "stirling-pdf",
       title: "Stirling PDF",
       category: "private",

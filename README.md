@@ -64,7 +64,6 @@ Hub/
 | **Uptime Kuma** | `https://uptime.guacamolegh.es` | Monitorización de estado y latencia |
 | **Beszel** | `https://beszel.guacamolegh.es` | Monitorización ligera de CPU, RAM, disco y red |
 | **MeTube** | `https://metube.guacamolegh.es` | Interfaz web de descarga de vídeos vía yt-dlp |
-| **Paperless-ngx** | `https://paperless.guacamolegh.es` | Gestión documental con OCR automático |
 | **Stirling PDF** | `https://stirling.guacamolegh.es` | Herramientas integrales para manipulación de PDFs |
 
 ---
@@ -78,7 +77,6 @@ Los servicios privados resuelven en tu red interna (por ejemplo mediante Pi-hole
 
 ```text
 192.168.0.18 beszel.guacamolegh.es
-192.168.0.18 paperless.guacamolegh.es
 192.168.0.18 metube.guacamolegh.es
 192.168.0.18 stirling.guacamolegh.es
 192.168.0.18 uptime.guacamolegh.es
