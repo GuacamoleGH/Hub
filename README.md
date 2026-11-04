@@ -58,7 +58,7 @@ Hub/
 | **Atlas** | `https://atlas.guacamolegh.es` | Aplicación web personal |
 | **Gestión del coche** | `https://coche.guacamolegh.es` | Mantenimiento, repostajes y gastos con LubeLogger |
 | **Games** | `https://games.guacamolegh.es` | Catálogo de juegos arcade clásicos para navegador |
-| **Flags** | `https://flags.guacamolegh.es` | Juego y quiz de preguntas sobre banderas del mundo |
+| **Flags** | `https://flags.guacamolegh.es` | Quiz web interactivo bilingüe de banderas de los 196 países oficiales del mundo para el homelab GuacamoleGH |
 
 ### 2. Servicios Privados (Red Local / DNS Privado guacamolegh.es)
 | Servicio | Dominio Privado | Descripción |

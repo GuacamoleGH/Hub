@@ -103,7 +103,7 @@ window.HUB_CONFIG = {
       id: "flags",
       title: "Flags",
       category: "public",
-      description: "Juego y quiz de preguntas sobre banderas de países del mundo.",
+      description: "Quiz web interactivo bilingüe de banderas de los 196 países oficiales del mundo para el homelab GuacamoleGH.",
       url: "https://flags.guacamolegh.es",
       displayUrl: "flags.guacamolegh.es",
       icon: "flag",
