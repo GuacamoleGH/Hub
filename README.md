@@ -17,6 +17,7 @@ Panel de inicio y dashboard de acceso centralizado para aplicaciones y servicios
 - **Categorización Visual Clara:**
   - 🌐 **Aplicaciones Públicas:** Accesibles vía Cloudflare Tunnel bajo el dominio `guacamolegh.es`.
   - 🔒 **Servicios Privados:** Protegidos y accesibles únicamente dentro de la red privada con **Tailscale VPN** o DNS local.
+- **Categoría por Defecto Inteligente:** Acceso inmediato a la pestaña de aplicaciones públicas (`defaultCategory: 'public'`).
 - **Zero Dependencias Externas:** Iconos vectoriales SVG limpios e integrados (sin fuentes ni CDNs externos como FontAwesome o Google Fonts). Funciona perfectamente en entornos aislados o sin conexión a internet.
 - **Accesibilidad & UX:** Totalmente navegable por teclado, estados de foco visibles y atajos integrados (`/` o `Ctrl + K` para buscar, `Esc` para limpiar, `T` para alternar tema y `?` para ver atajos).
 - **Reloj y Fecha en Vivo:** Barra superior con indicador en tiempo real y tipografía monoespaciada para administración de sistemas.
@@ -57,6 +58,7 @@ Hub/
 | **Atlas** | `https://atlas.guacamolegh.es` | Aplicación web personal |
 | **Gestión del coche** | `https://coche.guacamolegh.es` | Mantenimiento, repostajes y gastos con LubeLogger |
 | **Games** | `https://games.guacamolegh.es` | Catálogo de juegos arcade clásicos para navegador |
+| **Flags** | `https://flags.guacamolegh.es` | Juego y quiz de preguntas sobre banderas del mundo |
 
 ### 2. Servicios Privados (Red Local / DNS Privado guacamolegh.es)
 | Servicio | Dominio Privado | Descripción |

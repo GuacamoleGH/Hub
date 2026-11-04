@@ -17,7 +17,7 @@
 
   // Estado reactivo de la aplicación
   const state = {
-    activeCategory: 'all', // 'all' | 'public' | 'private'
+    activeCategory: config.ui?.defaultCategory || 'public', // 'all' | 'public' | 'private'
     searchQuery: '',
     theme: localStorage.getItem('guacamole_hub_theme') || config.ui?.defaultTheme || 'dark',
     view: localStorage.getItem('guacamole_hub_view') || config.ui?.defaultView || 'list', // 'list' | 'grid'
@@ -316,7 +316,7 @@
     if (resetBtn) {
       resetBtn.addEventListener('click', () => {
         state.searchQuery = '';
-        state.activeCategory = 'all';
+        state.activeCategory = config.ui?.defaultCategory || 'public';
         if (elements.searchInput) elements.searchInput.value = '';
         if (elements.searchClearBtn) elements.searchClearBtn.style.display = 'none';
         if (elements.searchBadge) elements.searchBadge.style.opacity = '1';

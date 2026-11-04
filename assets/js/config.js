@@ -28,6 +28,7 @@ window.HUB_CONFIG = {
   ui: {
     defaultTheme: "dark", // "dark" | "light"
     defaultView: "list",  // "list" | "grid"
+    defaultCategory: "public", // "public" | "all" | "private"
     enableClock: true,
     clockFormat24h: true,
     showDate: true,
@@ -96,6 +97,18 @@ window.HUB_CONFIG = {
       icon: "gamepad-2",
       accessType: "public",
       tags: ["games", "juegos", "arcade", "retro", "snake", "tetris", "pong"],
+      featured: true,
+    },
+    {
+      id: "flags",
+      title: "Flags",
+      category: "public",
+      description: "Juego y quiz de preguntas sobre banderas de países del mundo.",
+      url: "https://flags.guacamolegh.es",
+      displayUrl: "flags.guacamolegh.es",
+      icon: "flag",
+      accessType: "public",
+      tags: ["flags", "banderas", "quiz", "juego", "geografia", "paises", "trivia"],
       featured: true,
     },
 
