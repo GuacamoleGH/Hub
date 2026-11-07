@@ -111,6 +111,18 @@ window.HUB_CONFIG = {
       tags: ["flags", "banderas", "quiz", "juego", "geografia", "paises", "trivia"],
       featured: true,
     },
+    {
+      id: "metube",
+      title: "MeTube",
+      category: "public",
+      description: "Gestor y descargador web de vídeos y listas de reproducción mediante yt-dlp.",
+      url: "https://metube.guacamolegh.es",
+      displayUrl: "metube.guacamolegh.es",
+      icon: "download-cloud",
+      accessType: "public",
+      tags: ["metube", "descargas", "youtube", "videos", "musica", "yt-dlp"],
+      featured: true,
+    },
 
     // -------------------------------------------------------------
     // SERVICIOS PRIVADOS (Red Privada / DNS local guacamolegh.es)
@@ -137,18 +149,6 @@ window.HUB_CONFIG = {
       icon: "server-metrics",
       accessType: "private",
       tags: ["beszel", "hardware", "cpu", "ram", "servidor", "metricas"],
-      featured: false,
-    },
-    {
-      id: "metube",
-      title: "MeTube",
-      category: "private",
-      description: "Gestor y descargador web de vídeos y listas de reproducción mediante yt-dlp.",
-      url: "https://metube.guacamolegh.es",
-      displayUrl: "metube.guacamolegh.es",
-      icon: "download-cloud",
-      accessType: "private",
-      tags: ["metube", "descargas", "youtube", "videos", "musica", "yt-dlp"],
       featured: false,
     },
     {

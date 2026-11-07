@@ -59,13 +59,13 @@ Hub/
 | **Gestión del coche** | `https://coche.guacamolegh.es` | Mantenimiento, repostajes y gastos con LubeLogger |
 | **Games** | `https://games.guacamolegh.es` | Catálogo de juegos arcade clásicos para navegador |
 | **Flags** | `https://flags.guacamolegh.es` | Quiz web interactivo bilingüe de banderas de los 196 países oficiales del mundo para el homelab GuacamoleGH |
+| **MeTube** | `https://metube.guacamolegh.es` | Interfaz web de descarga de vídeos vía yt-dlp |
 
 ### 2. Servicios Privados (Red Local / DNS Privado guacamolegh.es)
 | Servicio | Dominio Privado | Descripción |
 | :--- | :--- | :--- |
 | **Uptime Kuma** | `https://uptime.guacamolegh.es` | Monitorización de estado y latencia |
 | **Beszel** | `https://beszel.guacamolegh.es` | Monitorización ligera de CPU, RAM, disco y red |
-| **MeTube** | `https://metube.guacamolegh.es` | Interfaz web de descarga de vídeos vía yt-dlp |
 | **Stirling PDF** | `https://stirling.guacamolegh.es` | Herramientas integrales para manipulación de PDFs |
 
 ---
@@ -79,7 +79,6 @@ Los servicios privados resuelven en tu red interna (por ejemplo mediante Pi-hole
 
 ```text
 192.168.0.18 beszel.guacamolegh.es
-192.168.0.18 metube.guacamolegh.es
 192.168.0.18 stirling.guacamolegh.es
 192.168.0.18 uptime.guacamolegh.es
 ```
