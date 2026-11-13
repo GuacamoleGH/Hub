@@ -60,6 +60,7 @@ Hub/
 | **Games** | `https://games.guacamolegh.es` | Catálogo de juegos arcade clásicos para navegador |
 | **Flags** | `https://flags.guacamolegh.es` | Quiz web interactivo bilingüe de banderas de los 196 países oficiales del mundo para el homelab GuacamoleGH |
 | **MeTube** | `https://metube.guacamolegh.es` | Interfaz web de descarga de vídeos vía yt-dlp |
+| **Share** | `https://share.guacamolegh.es` | Plataforma segura para transferir y compartir archivos con subidas fragmentadas |
 
 ### 2. Servicios Privados (Red Local / DNS Privado guacamolegh.es)
 | Servicio | Dominio Privado | Descripción |

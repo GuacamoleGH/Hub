@@ -124,6 +124,19 @@ window.HUB_CONFIG = {
       featured: true,
     },
 
+    {
+      id: "share",
+      title: "Share",
+      category: "public",
+      description: "Plataforma segura para transferir y compartir archivos con enlaces protegidos y subidas fragmentadas.",
+      url: "https://share.guacamolegh.es",
+      displayUrl: "share.guacamolegh.es",
+      icon: "share-2",
+      accessType: "public",
+      tags: ["share", "archivos", "transferencia", "wetransfer", "ficheros", "subidas", "compartir"],
+      featured: true,
+    },
+
     // -------------------------------------------------------------
     // SERVICIOS PRIVADOS (Red Privada / DNS local guacamolegh.es)
     // -------------------------------------------------------------
