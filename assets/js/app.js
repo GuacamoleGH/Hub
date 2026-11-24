@@ -248,9 +248,9 @@
 
             <div class="card-content">
               <div class="card-title-row">
-                <h3 class="card-title">${escapeHtml(service.title)}</h3>
+                <h3 class="card-title" title="${escapeHtml(service.title)}">${escapeHtml(service.title)}</h3>
               </div>
-              <p class="card-description">${escapeHtml(service.description)}</p>
+              <p class="card-description" title="${escapeHtml(service.description)}">${escapeHtml(service.description)}</p>
             </div>
           </div>
 

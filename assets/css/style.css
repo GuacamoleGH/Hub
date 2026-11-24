@@ -937,10 +937,10 @@ input {
 .services-grid.view-list .card-description {
   margin-bottom: 0;
   font-size: 0.82rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 480px;
+  line-height: 1.4;
+  white-space: normal;
+  max-width: 100%;
+  word-break: break-word;
 }
 
 .services-grid.view-list .card-access-badge {
