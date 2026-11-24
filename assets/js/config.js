@@ -136,6 +136,18 @@ window.HUB_CONFIG = {
       tags: ["share", "archivos", "transferencia", "wetransfer", "ficheros", "subidas", "compartir"],
       featured: true,
     },
+    {
+      id: "osint",
+      title: "OSINT Hub",
+      category: "public",
+      description: "Portal personal de inteligencia de fuentes abiertas (OSINT), herramientas de investigación y retos.",
+      url: "https://osint.guacamolegh.es",
+      displayUrl: "osint.guacamolegh.es",
+      icon: "compass",
+      accessType: "public",
+      tags: ["osint", "inteligencia", "investigacion", "geoint", "imint", "socmint", "ciberseguridad", "herramientas", "fuentes-abiertas"],
+      featured: true,
+    },
 
     // -------------------------------------------------------------
     // SERVICIOS PRIVADOS (Red Privada / DNS local guacamolegh.es)

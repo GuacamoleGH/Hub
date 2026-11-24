@@ -53,6 +53,7 @@ Hub/
 | **Flags** | `https://flags.guacamolegh.es` | Quiz web interactivo bilingüe de banderas de los 196 países oficiales del mundo para el ecosistema GuacamoleGH |
 | **MeTube** | `https://metube.guacamolegh.es` | Interfaz web de descarga de vídeos vía yt-dlp |
 | **Share** | `https://share.guacamolegh.es` | Plataforma segura para transferir y compartir archivos con subidas fragmentadas |
+| **OSINT Hub** | `https://osint.guacamolegh.es` | Portal personal de inteligencia de fuentes abiertas (OSINT), herramientas de investigación y retos |
 
 ### 2. Servicios Privados (Red Local / `guacamolegh.es`)
 | Servicio | Dominio Privado | Descripción |
